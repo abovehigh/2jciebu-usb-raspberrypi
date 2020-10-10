@@ -13,7 +13,6 @@ DISPLAY_RULE_NORMALLY_ON = 1
 def calc_crc(buf, length):
     """
     CRC-16 calculation.
-
     """
     crc = 0xFFFF
     for i in range(length):
@@ -86,6 +85,11 @@ def print_latest_data(data):
     print("SI value flag:" + si_value_flag)
     print("PGA flag:" + pga_flag)
     print("Seismic intensity flag:" + seismic_intensity_flag)
+    
+    file = "data.txt"
+    fileobj = open(file, "w", mode = "a", encoding = "utf_8") 
+    fileobj.write(temperature + "," + relative_humidity + "\n")
+    fileobj.close	
 
 
 def now_utc_str():
